@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import HomePage from './pages/home-page/home-page.tsx';
+import App from './app/app.tsx';
 
 
 const root = ReactDOM.createRoot(
@@ -9,6 +9,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <HomePage />
+    <App/>
   </React.StrictMode>
 );

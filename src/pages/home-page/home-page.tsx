@@ -1,4 +1,4 @@
-import PlaceCard from "../../components/place-card/place-card.tsx";
+import PlaceCard from '../../components/place-card/place-card.tsx';
 
 function HomePage() {
   return (
