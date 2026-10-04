@@ -1,4 +1,4 @@
-import HomePage from '../pages/home-page/home-page.tsx';
+import MainPage from '../pages/main-page/main-page.tsx';
 
 type AppProps = {
   placesCount: number;
@@ -6,7 +6,7 @@ type AppProps = {
 
 function App({placesCount}: AppProps){
   return (
-    <HomePage placesCount={placesCount}/>
+    <MainPage placesCount={placesCount}/>
   );
 }
 

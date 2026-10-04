@@ -4,7 +4,7 @@ type HomePageProps = {
   placesCount: number;
 }
 
-function HomePage({placesCount}: HomePageProps) {
+function MainPage({placesCount}: HomePageProps) {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -131,4 +131,4 @@ function HomePage({placesCount}: HomePageProps) {
   );
 }
 
-export default HomePage;
+export default MainPage;
