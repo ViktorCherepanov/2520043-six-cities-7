@@ -1,4 +1,11 @@
-function FavoritesPage() {
+import {Offer} from '../../types/offer';
+
+type FavoritesPageProps = {
+  offers: Offer[];
+}
+
+function FavoritesPage({offers}: FavoritesPageProps) {
+  const favoritesCount = offers.filter((offer) => offer.isFavorite).length;
   return (
     <div className="page page--favorites-empty">
       <header className="header">
@@ -25,7 +32,7 @@ function FavoritesPage() {
                       className="header__user-name user__name"
                     >Oliver.conner@gmail.com
                     </span>
-                    <span className="header__favorite-count">0</span>
+                    <span className="header__favorite-count">{favoritesCount}</span>
                   </a>
                 </li>
                 <li className="header__nav-item">
