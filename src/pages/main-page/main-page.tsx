@@ -1,4 +1,4 @@
-import PlaceCard from '../../components/place-card/place-card.tsx';
+import OffersList from '../../components/offers-list/offers-list.tsx';
 import {Offer} from '../../types/offer';
 
 type MainPageProps = {
@@ -115,11 +115,7 @@ function MainPage({offers}: MainPageProps) {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <PlaceCard />
-                <PlaceCard />
-                <PlaceCard />
-                <PlaceCard />
-                <PlaceCard />
+                <OffersList offers={offers} />
               </div>
             </section>
             <div className="cities__right-section">
