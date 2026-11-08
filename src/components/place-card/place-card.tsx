@@ -1,23 +1,40 @@
-function PlaceCard(){
+import {Link} from 'react-router-dom';
+import {Offer} from '../../types/offer';
+
+type PlaceCardProps = {
+  offer: Offer;
+  cardType?: 'cities' | 'favorites';
+  onMouseEnter?: (id: string) => void;
+}
+
+function PlaceCard({offer, cardType = 'cities', onMouseEnter}: PlaceCardProps){
+  const {id, title, type, price, isPremium, rating, previewImage} = offer;
+  const isFavorites = cardType === 'favorites';
+
   return (
-    <article className="cities__card place-card">
-      <div className="place-card__mark">
-        <span>Premium</span>
-      </div>
+    <article className={`${cardType}__card place-card`}
+      onMouseEnter={() => onMouseEnter?.(id)}
+    >
+      {isPremium &&
+        <div className="place-card__mark">
+          <span>Premium</span>
+        </div>}
       <div
-        className="cities__image-wrapper place-card__image-wrapper"
+        className={`${cardType}__image-wrapper place-card__image-wrapper`}
       >
-        <a href="#">
+        <Link to={`/offer/${id}`}>
           <img className="place-card__image"
-            src="img/apartment-01.jpg" width="260" height="200"
+            src={previewImage}
+            width={isFavorites ? '150' : '260'}
+            height={isFavorites ? '110' : '200'}
             alt="Place image"
           />
-        </a>
+        </Link>
       </div>
-      <div className="place-card__info">
+      <div className={isFavorites ? 'favorites__card-info place-card__info' : 'place-card__info'}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">&euro;120</b>
+            <b className="place-card__price-value">&euro;{price}</b>
             <span
               className="place-card__price-text"
             >&#47;&nbsp;night
@@ -36,16 +53,14 @@ function PlaceCard(){
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: '80%'}}></span>
+            <span style={{width: `${rating * 20}%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">Beautiful &amp; luxurious apartment at great
-            location
-          </a>
+          <Link to={`/offer/${id}`}>{title}</Link>
         </h2>
-        <p className="place-card__type">Apartment</p>
+        <p className="place-card__type">{type}</p>
       </div>
     </article>
   );
