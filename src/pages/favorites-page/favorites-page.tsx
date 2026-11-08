@@ -1,7 +1,8 @@
 import {Link} from 'react-router-dom';
 import PlaceCard from '../../components/place-card/place-card.tsx';
 import {AppRoute} from '../../const';
-import {Offer} from '../../types/offer';
+import {Offer} from '../../types/offer.ts';
+
 
 type FavoritesPageProps = {
   offers: Offer[];
