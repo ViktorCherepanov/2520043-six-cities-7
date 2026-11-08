@@ -3,14 +3,16 @@ import {Offer} from '../../types/offer';
 
 type PlaceCardProps = {
   offer: Offer;
+  cardType?: 'cities' | 'favorites';
   onMouseEnter?: (id: string) => void;
 }
 
-function PlaceCard({offer, onMouseEnter}: PlaceCardProps){
+function PlaceCard({offer, cardType = 'cities', onMouseEnter}: PlaceCardProps){
   const {id, title, type, price, isPremium, rating, previewImage} = offer;
+  const isFavorites = cardType === 'favorites';
 
   return (
-    <article className="cities__card place-card"
+    <article className={`${cardType}__card place-card`}
       onMouseEnter={() => onMouseEnter?.(id)}
     >
       {isPremium &&
@@ -18,16 +20,18 @@ function PlaceCard({offer, onMouseEnter}: PlaceCardProps){
           <span>Premium</span>
         </div>}
       <div
-        className="cities__image-wrapper place-card__image-wrapper"
+        className={`${cardType}__image-wrapper place-card__image-wrapper`}
       >
         <Link to={`/offer/${id}`}>
           <img className="place-card__image"
-            src={previewImage} width="260" height="200"
+            src={previewImage}
+            width={isFavorites ? '150' : '260'}
+            height={isFavorites ? '110' : '200'}
             alt="Place image"
           />
         </Link>
       </div>
-      <div className="place-card__info">
+      <div className={isFavorites ? 'favorites__card-info place-card__info' : 'place-card__info'}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>

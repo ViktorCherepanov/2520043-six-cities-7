@@ -27,7 +27,7 @@ function App({offers}: AppProps){
         <Route
           path={AppRoute.Favorites}
           element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
+            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
               <FavoritesPage offers={offers}/>
             </PrivateRoute>
           }
