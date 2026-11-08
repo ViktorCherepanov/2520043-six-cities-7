@@ -1,9 +1,11 @@
 import {Link} from 'react-router-dom';
 import {Offer} from '../../types/offer';
 
+export type PlaceCardType = 'cities' | 'favorites' | 'near-places';
+
 type PlaceCardProps = {
   offer: Offer;
-  cardType?: 'cities' | 'favorites';
+  cardType?: PlaceCardType;
   onMouseEnter?: (id: string) => void;
 }
 

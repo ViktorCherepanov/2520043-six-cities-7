@@ -12,9 +12,10 @@ const defaultCustomIcon = L.icon({
 type MapProps = {
   offers: Offer[];
   city: City;
+  className?: string;
 };
 
-function Map({offers, city}: MapProps) {
+function Map({offers, city, className = 'cities__map'}: MapProps) {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const leafletMapRef = useRef<L.Map | null>(null);
 
@@ -61,7 +62,7 @@ function Map({offers, city}: MapProps) {
   }, [offers]);
 
   return (
-    <section className="cities__map map" ref={mapRef}></section>
+    <section className={`${className} map`} ref={mapRef}></section>
   );
 }
 
