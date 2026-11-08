@@ -1,13 +1,16 @@
 import {Link} from 'react-router-dom';
+import Map from '../../components/map/map.tsx';
 import OffersList from '../../components/offers-list/offers-list.tsx';
 import {AppRoute} from '../../const';
-import {Offer} from '../../types/offer';
+import {Offer} from '../../types/offer.ts';
 
 type MainPageProps = {
   offers: Offer[];
 }
 
 function MainPage({offers}: MainPageProps) {
+  const currentCity = offers[0]?.city;
+
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -123,7 +126,8 @@ function MainPage({offers}: MainPageProps) {
               </div>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              {currentCity &&
+                <Map offers={offers} city={currentCity} />}
             </div>
           </div>
         </div>
