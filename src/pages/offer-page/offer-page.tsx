@@ -1,3 +1,5 @@
+import ReviewForm from '../../components/review-form/review-form.tsx';
+
 function OfferPage() {
   return (
     <main className="page__main page__main--offer">
@@ -177,6 +179,7 @@ function OfferPage() {
                   </div>
                 </li>
               </ul>
+              <ReviewForm />
             </section>
           </div>
         </div>
